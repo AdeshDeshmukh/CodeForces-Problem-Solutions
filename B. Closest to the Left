@@ -1,0 +1,90 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define ll long long
+#define MOD (ll)(1e9+7)
+#define INF (ll)(1e18)
+#define foo(i, a, b)  for (int i = (a); i < (b); ++i)
+#define foop(j, c, d) for (int j = (c); j <= (d); ++j)
+#define rfoo(i, a, b) for (int i = (a)-1; i >= (b); --i)
+#define all(x) (x).begin(), (x).end()
+#define sz(x) ((int)(x).size())
+#define pb push_back
+#define ppb pop_back
+#define mp make_pair
+#define F first
+#define S second
+ 
+ 
+// Typedefs
+using vll = vector<ll>;
+using pll = pair<ll, ll>;
+using vi = vector<int>;
+using pi = pair<int, int>;
+ 
+ 
+// === SORT SHORTCUTS (EXPLICIT) ===
+#define sorta(v) sort((v).begin(), (v).end())
+#define sortd(v) sort((v).begin(), (v).end(), greater<decltype((v)[0])>())
+#define sort_partial(v, l, r) sort((v).begin()+(l), (v).begin()+(r)) // [l, r)
+ 
+ 
+ll gcd(ll a, ll b) {
+    while (b) {
+        a %= b;
+        swap(a, b);
+    }
+    return a;
+}
+ 
+ll lcm(ll a, ll b) {
+    if (a == 0 || b == 0) return 0;
+    return (a / gcd(a, b)) * b;
+}
+ 
+ 
+ 
+void Adesh() {
+    ll n, k;
+    cin >> n >> k;
+    vll a(n);
+    foo(i,0,n) cin >> a[i];
+    vll b(k);
+    foo(j,0,k) cin >> b[j];
+ 
+    
+    for (int q = 0; q < k; q++) {
+        ll x = b[q];
+        ll l = 0, r = n;  
+ 
+        while (l < r) {
+            ll mid = l + (r - l) / 2;
+            if (a[mid] <= x) {
+                l = mid + 1;   
+            } else {
+                r = mid;       
+            }
+        }
+ 
+        cout << l << "\n";  
+    }
+}
+ 
+int main() {
+#ifndef ONLINE_JUDGE
+    freopen("Error.txt", "w", stderr);
+#endif
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
+    ll t = 1 ;
+    //int t; cin >> t;
+    
+    while (t--) {
+        Adesh();
+    }
+    return 0;
+}
+ 
+// Time Complexity: 
+// Space Complexity:
