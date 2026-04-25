@@ -1,0 +1,74 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll  = long long;
+using vi  = vector<int>;
+using vll = vector<ll>;
+#define pb push_back
+#define sorta(v) sort((v).begin(), (v).end())
+#define foo(i, a, b) for (int i = (a); i < (b); ++i)
+ 
+ 
+//---------------------ANSWER------------------------// 
+ 
+ 
+ 
+ 
+void Adesh() {
+    ll n;cin >> n;
+    ll s = 1, tn = n;
+ 
+    for (ll i = 2; i * i <= tn && i <= 4000000; ++i) {
+        if (tn % i == 0) {
+            ll cc = 0;
+            while (tn % i == 0) {
+                cc++;
+                tn /= i;
+            }
+            if (cc % 2 != 0) s *= i;
+        }
+    }
+ 
+    if (tn > 1) {
+        ll roo = tn;
+        ll rr = sqrt(roo); 
+        if (rr * rr != roo) {
+            s *= roo;
+        }
+    }
+ 
+    ll mss = n / s;
+    ll m = sqrt(mss); 
+    
+    ll q = m + 1;
+    ll x = s * q * q;
+ 
+    cout << x << endl ;
+}
+ 
+ 
+ 
+ 
+//---------------------ANSWER------------------------// 
+ 
+ 
+ 
+ 
+ 
+int main() {
+#ifndef ONLINE_JUDGE
+    freopen("Error.txt", "w", stderr);
+#endif
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+ 
+    
+   ll t = 1 ;
+   // int t; cin >> t; 
+    while (t--) { 
+        Adesh();
+    }
+ 
+    return 0;
+    
+    
+}
