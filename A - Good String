@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll  = long long;
+using vi  = vector<int>;
+using vll = vector<ll>;
+#define pb push_back
+#define sorta(v) sort((v).begin(), (v).end())
+#define foo(i, a, b) for (int i = (a); i < (b); ++i)
+ 
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+ 
+    int t; cin >> t;
+ 
+    while (t--) {
+        ll n, k;cin >> n >> k;
+        string s;cin >> s;
+ 
+        ll o = 0;
+        foo(i, 0, n - 1) {
+            if (s[i] == s[i + 1]) {
+                o++;
+                s[i + 1] = '#';
+            }
+        }
+ 
+        cout << (o <= k ? "YES" : "NO") << endl ;
+    }
+ 
+    return 0;
+}
