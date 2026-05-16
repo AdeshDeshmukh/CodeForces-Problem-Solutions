@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll  = long long;
+using vi  = vector<int>;
+using vll = vector<ll>;
+#define pb push_back
+#define sorta(v) sort((v).begin(), (v).end())
+#define foo(i, a, b) for (int i = (a); i < (b); ++i)
+
+
+//---------------------ANSWER------------------------//
+
+
+const ll MOD = 1e9 + 7;
+const ll MAXN = 6000;
+vll cat(MAXN);
+
+void pc() {
+    cat[0] = 1;
+    for(ll i = 1; i < MAXN; i++) {
+        cat[i] = 0;
+        foo(j, 0, i) {
+            cat[i] = (cat[i] + (cat[j] * cat[i-1-j]) % MOD) % MOD;
+        }
+    }
+}
+
+void Adesh() {
+    ll n; cin >> n;
+    cout << cat[n] << "\n";
+}
+
+
+//---------------------ANSWER------------------------//
+
+
+int main() {
+#ifndef ONLINE_JUDGE
+    freopen("Error.txt", "w", stderr);
+#endif
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    pc();
+    
+    ll t; cin >> t;
+    while (t--) {
+        Adesh();
+    }
+
+    return 0;
+}
